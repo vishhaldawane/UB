@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ViewAllBooksComponent implements OnInit { //UI 
 
+  newBook: Book = new Book();
   allBooks! : Book[]; //local empty array 
   constructor(private bookService: BookService) {} //get the service
   ngOnInit(): void {
@@ -24,6 +25,18 @@ export class ViewAllBooksComponent implements OnInit { //UI
   editIt(book: Book) {
     console.log('current value before editing ',book);
     this.bookService.editExistingBook(book);
+  }
+
+ // book = new Book();
+  addIt() {
+    console.log('adding it ');
+    let book: Book;
+    book = new Book();
+    book.bookId = this.newBook.bookId;
+    book.bookName = this.newBook.bookName;
+    book.bookAuthor = this.newBook.bookAuthor;
+    book.bookPrice = this.newBook.bookPrice;
+    this.bookService.addBook(book);
   }
 
 }

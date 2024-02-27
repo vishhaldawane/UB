@@ -7,6 +7,14 @@
     </thead>
 
     <tbody>
+        <tr>
+            <td><input type=text [(ngModel)]="newBook.bookId"></td>
+            <td><input type=text [(ngModel)]="newBook.bookName"></td>
+            <td><input type=text [(ngModel)]="newBook.bookAuthor"></td>
+            <td><input type=text [(ngModel)]="newBook.bookPrice"></td>
+            <td><button [style.color]="'blue'" (click)="addIt()">Add</button></td>
+        </tr>
+
         <tr *ngFor="let book of allBooks">
             <td>{{book.bookId}}</td>
             <td><input type=text [(ngModel)]="book.bookName"></td>
