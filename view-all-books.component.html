@@ -1,0 +1,19 @@
+<table border="3">
+    <thead>
+        <tr>
+            <th>Book Id</th> <th>Book Name</th>
+            <th>Book Author</th> <th>Book Price</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let book of allBooks">
+            <td>{{book.bookId}}</td>
+            <td><input type=text [(ngModel)]="book.bookName"></td>
+            <td><input type=text [(ngModel)]="book.bookAuthor"></td>
+            <td><input type=text [(ngModel)]="book.bookPrice"></td>
+            <td><button [style.color]="'green'" (click)="editIt(book)">Edit</button></td>
+            <td><button [style.color]="'red'" (click)="deleteIt(book.bookId)">Delete</button></td>
+        </tr>
+    </tbody>
+</table>
