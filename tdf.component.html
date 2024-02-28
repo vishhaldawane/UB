@@ -1,36 +1,36 @@
-<form #contactForm="ngForm"  (ngSubmit)="onSubmit(contactForm)">
+<form #contactForm="ngForm"  (ngSubmit)="onSubmit(contactForm)" novalidate>
 
  
     <p>
       <label for="firstname">First Name</label>
-      <input type="text" id="firstname" name="firstname" ngModel>
-      <input type="text" name="firstname" #fname="ngModel" ngModel>
+      <!-- <input type="text" id="firstname" name="firstname" ngModel> -->
+      <input type="text" name="firstname" required #fname="ngModel" [(ngModel)]="contact.firstname">
     </p>
    
     <p>
       <label for="lastname">Last Name</label>
-      <input type="text" id="lastname" name="lastname" ngModel>
+      <input type="text" id="lastname" required name="lastname" ngModel [(ngModel)]="contact.lastname">
     </p>
    
     <p>
       <label for="email">Email </label>
-      <input type="text" id="email" name="email" ngModel>
+      <input type="text" id="email" name="email" ngModel [(ngModel)]="contact.email">
     </p>
    
     <p>
       <label for="gender">Geneder</label>
-      <input type="radio" value="male" id="gender" name="gender" ngModel> Male
-      <input type="radio" value="female" id="gender" name="gender" ngModel> Female
+      <input type="radio" value="male" id="gender" name="gender" ngModel [(ngModel)]="contact.gender"> Male
+      <input type="radio" value="female" id="gender" name="gender" ngModel [(ngModel)]="contact.gender"> Female
     </p>
    
     <p>
       <label for="isMarried">Married</label>
-      <input type="checkbox" id="isMarried" name="isMarried" ngModel>
+      <input type="checkbox" id="isMarried" name="isMarried" ngModel [(ngModel)]="contact.isMarried">
     </p>
    
     <p>
     <label for="country">country </label>
-    <select name="country" id="country" ngModel>
+    <select name="country" id="country" ngModel [(ngModel)]="contact.country">
       <option selected="" value=""></option>
       <option [ngValue]="c.id" *ngFor="let c of countryList">
         {{c.name}}
