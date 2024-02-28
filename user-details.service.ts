@@ -33,7 +33,7 @@ export class UserDetailsService {
      return this.myHttp.get("http://localhost:3000/users/"+userIdToFind);
    }
 
-  deleteUser(userIdToDelete:number): Observable<any> {
+  deleteUser(userIdToDelete:string): Observable<any> {
     return this.myHttp.delete("http://localhost:3000/users/"+userIdToDelete);
   }
 }

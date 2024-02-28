@@ -56,4 +56,17 @@ export class UserDemoComponent {
         (err)=> { console.log(err); }    
     );
   }
+
+  deleteIt(idToDelete:string) {
+    this.uds.deleteUser(idToDelete).subscribe(
+      (data: UserDetails) => 
+        {
+          //this.foundUser = data; // populate the data into local user
+          console.log(this.foundUser);
+          console.log('User deleted...');
+          this.showAllUsers();
+        },
+        (err)=> { console.log(err); }    
+    );
+  }
 }

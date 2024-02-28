@@ -36,6 +36,7 @@
             <td>{{user.name}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
+            <td><button (click)="deleteIt(user.id)">Delete</button></td>
             <!-- <td>{{user.address.street}},
                 {{user.address.suite}},
                 {{user.address.city}},
@@ -51,7 +52,8 @@
     </tbody>
 </table>
 
-Enter user id <input type="text" [(ngModel)]="num" (input)="findSingleUser()"> <br>
+Enter user id <input type="text"
+ [(ngModel)]="num" (input)="findSingleUser()"> <br>
 <button (click)="findSingleUser()">Find A User</button>
 <table border="3" cellspacing="5" cellpadding="5">
     <tbody>
