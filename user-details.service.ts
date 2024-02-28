@@ -12,6 +12,15 @@ export class UserDetailsService {
 
   getAllUsers() : Observable<UserDetails[]> {
     //https://jsonplaceholder.typicode.com/users
-    return this.myHttp.get<UserDetails[]>("https://jsonplaceholder.typicode.com/users");                                     // above url can be of REST API from spring boot app                                     //http://ocalhost:8080/UserApp/allUsers
+    return this.myHttp.get<UserDetails[]>("http://localhost:3000/users");
+    //return this.myHttp.get<UserDetails[]>("https://jsonplaceholder.typicode.com/users");                                     
+    //http://ocalhost:8080/UserApp/allUsers
+  }
+  addUser(user:UserDetails): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(user);
+    console.log(body)
+    return this.myHttp.post("http://localhost:3000/users",
+     body,{'headers':headers})
   }
 }

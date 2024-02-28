@@ -1,4 +1,17 @@
 <p>user-demo works!</p>
+
+<div>
+    <div>
+      <label>Id: </label> <input [(ngModel)]="newUser.id" />
+      <label>Name: </label> <input [(ngModel)]="newUser.name" />
+      <label>Username: </label> <input [(ngModel)]="newUser.username" />
+      <label>Email: </label> <input [(ngModel)]="newUser.email" />
+    </div>
+    <div>
+      <button (click)="addUser()">Add</button>
+    </div>
+  </div>
+
 <button (click)="showAllUsers()" > Show All User Details</button>
 <table border="3" cellspacing="5" cellpadding="5">
     <tbody>
@@ -7,9 +20,9 @@
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
-            <th>Address</th>
+            <!-- <th>Address</th>
             <th>Phone</th>
-            <th>Website</th>
+            <th>Website</th> -->
         </tr>
     </tbody>
 
@@ -19,16 +32,16 @@
             <td>{{user.name}}</td>
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
-            <td>{{user.address.street}},
+            <!-- <td>{{user.address.street}},
                 {{user.address.suite}},
                 {{user.address.city}},
                 {{user.address.zip}},    
                 Geo : {{user.address.geo.lat}},    
                 {{user.address.geo.lng}},    
-            </td>
+            </td> -->
 
-            <td>{{user.phone}}</td>
-            <td>{{user.website}}</td>
+            <!-- <td>{{user.phone}}</td>
+            <td>{{user.website}}</td> -->
 
         </tr>
     </tbody>

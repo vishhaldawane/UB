@@ -25,4 +25,23 @@ export class UserDemoComponent {
           (err)=> { console.log(err); }    
       );
   }
+
+  newUser: UserDetails=new UserDetails(); //an empty array
+
+  addUser() {
+    this.uds.addUser(this.newUser)
+      .subscribe(data => {
+        console.log(data)
+        //this.refreshUsers();
+        this.showAllUsers();
+      })      
+  }
+
+  refreshUsers() {
+    this.uds.getAllUsers()
+      .subscribe(data => {
+        console.log(data)
+        this.allUsers=data;
+      })
+  }
 }
