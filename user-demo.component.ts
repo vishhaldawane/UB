@@ -44,4 +44,16 @@ export class UserDemoComponent {
         this.allUsers=data;
       })
   }
+  num!: number;
+  foundUser: UserDetails =  new  UserDetails();
+  findSingleUser() {
+    this.uds.getSingleUser(this.num).subscribe(
+      (data: UserDetails) => 
+        {
+          this.foundUser = data; // populate the data into local user
+          console.log(this.foundUser);
+        },
+        (err)=> { console.log(err); }    
+    );
+  }
 }

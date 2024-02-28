@@ -2,10 +2,14 @@
 
 <div>
     <div>
-      <label>Id: </label> <input [(ngModel)]="newUser.id" />
-      <label>Name: </label> <input [(ngModel)]="newUser.name" />
-      <label>Username: </label> <input [(ngModel)]="newUser.username" />
-      <label>Email: </label> <input [(ngModel)]="newUser.email" />
+      <label>Id: </label> 
+      <input [(ngModel)]="newUser.id" />
+      <label>Name: </label> 
+      <input [(ngModel)]="newUser.name" />
+      <label>Username: </label> 
+      <input [(ngModel)]="newUser.username" />
+      <label>Email: </label> 
+      <input [(ngModel)]="newUser.email" />
     </div>
     <div>
       <button (click)="addUser()">Add</button>
@@ -43,6 +47,27 @@
             <!-- <td>{{user.phone}}</td>
             <td>{{user.website}}</td> -->
 
+        </tr>
+    </tbody>
+</table>
+
+Enter user id <input type="text" [(ngModel)]="num" (input)="findSingleUser()"> <br>
+<button (click)="findSingleUser()">Find A User</button>
+<table border="3" cellspacing="5" cellpadding="5">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+    </tbody>
+
+    <tbody>
+        <tr>
+            <td>{{foundUser.id}}</td>
+            <td>{{foundUser.name}}</td>
+            <td>{{foundUser.username}}</td>
+            <td>{{foundUser.email}}</td>
         </tr>
     </tbody>
 </table>
