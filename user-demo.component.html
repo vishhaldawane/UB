@@ -1,0 +1,35 @@
+<p>user-demo works!</p>
+<button (click)="showAllUsers()" > Show All User Details</button>
+<table border="3" cellspacing="5" cellpadding="5">
+    <tbody>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Website</th>
+        </tr>
+    </tbody>
+
+    <tbody>
+        <tr *ngFor="let user of allUsers">
+            <td>{{user.id}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address.street}},
+                {{user.address.suite}},
+                {{user.address.city}},
+                {{user.address.zip}},    
+                Geo : {{user.address.geo.lat}},    
+                {{user.address.geo.lng}},    
+            </td>
+
+            <td>{{user.phone}}</td>
+            <td>{{user.website}}</td>
+
+        </tr>
+    </tbody>
+</table>
