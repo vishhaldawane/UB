@@ -23,4 +23,17 @@ export class UserDetailsService {
     return this.myHttp.post("http://localhost:3000/users",
      body,{'headers':headers})
   }
+  updateUser(user:UserDetails): Observable<any> {
+    const headers = { 'content-type': 'application/json'}  
+    const body=JSON.stringify(user);
+    console.log(body)
+    return this.myHttp.put("http://localhost:3000/users",body,{'headers':headers})
+  }
+  getSingleUser(userIdToFind:number): Observable<any> {
+     return this.myHttp.get("http://localhost:3000/users/"+userIdToFind);
+   }
+
+  deleteUser(userIdToDelete:number): Observable<any> {
+    return this.myHttp.delete("http://localhost:3000/users/"+userIdToDelete);
+  }
 }
