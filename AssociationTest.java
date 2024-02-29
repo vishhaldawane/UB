@@ -24,7 +24,14 @@ public class AssociationTest {
 			  |      |              |             |
 			  structural			operational/functional
 */
-class WashingTub { }
+class WashingTub {
+	void rinse() {
+		System.out.println("WashingTub is rinsing.....");
+	}
+	void spin() {
+		System.out.println("WashingTub is spinning....");
+	}
+}
 class CleaningDevice {} //super class
 class WashingPowder { }
 class Water { }
@@ -39,8 +46,14 @@ class WashingMachine extends CleaningDevice //isA - Aggregation
 				//usesA - passing object as parameter for 
 				//the sake of running this method
 	Laundry wash(Water water, Electricity elect, WashingPowder powder, Cloth cloth) {
-		
+		System.out.println("Washing machine is using the water............");
+		System.out.println("Washing machine is using the electricity......");
+		System.out.println("Washing machine is using the washing powder...");
+		washTub.rinse();
+		System.out.println("Washing machine is washing the cloth..........");
+		washTub.spin();
 		Laundry laundry = new Laundry();
+		System.out.println("Washing machine is generating laundry bill....");
 		return laundry;
 	}
 }
