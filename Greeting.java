@@ -7,20 +7,26 @@ public class Greeting {
 		butterFlyObjRef.hexaPoda();
 		butterFlyObjRef.fly();
 		butterFlyObjRef.checkAeroDynamics();
+		butterFlyObjRef.land();
 		System.out.println("-----------------------");
 		flightObjRef.mechanism();
 		flightObjRef.fly();
 		flightObjRef.checkAeroDynamics();
+		flightObjRef.land();
 		System.out.println("-----------------------");
 		paraGliderObjRef.think();
 		paraGliderObjRef.fly();
 		paraGliderObjRef.checkAeroDynamics();
+		paraGliderObjRef.land();
 	}
 }
 interface Flying {
 	void fly(); // declaration of a function | function without body  | abstract function
 		// by default interface functions are public 
 	void checkAeroDynamics();
+}
+interface Landing {
+	void land(); //public and abstract without body
 }
 /*--------------------------------*/
 class Insect {
@@ -29,12 +35,15 @@ class Insect {
 	}
 }
 //The type ButterFly must implement the inherited abstract method Flying.checkAeroDynamics()
-class ButterFly extends Insect implements Flying { //ButterFly is an Insect - isA
+class ButterFly extends Insect implements Flying, Landing { //ButterFly is an Insect - isA
 	public void fly() {
 		System.out.println("ButterFly is flying...");
 	}
 	public void checkAeroDynamics() {
 		System.out.println("ButterFly is checking its aerodynamics..via nature...");
+	}
+	public void land() {
+		System.out.println("ButterFly is landing... on a Rose Flower...");
 	}
 }
 /*--------------------------------*/
@@ -43,12 +52,15 @@ class Machine {
 		System.out.println("Machine with mechanism");
 	}
 }
-class Flight extends Machine implements Flying { //Flight is a Machine - isA
+class Flight extends Machine implements Flying, Landing { //Flight is a Machine - isA
 	public void fly() {
 		System.out.println("Flight is flying...");
 	}
 	public void checkAeroDynamics() {
 		System.out.println("Flight is checking its aerodynamics....via computers....");
+	}
+	public void land() {
+		System.out.println("Flight is landing at Mumbai Airport...");
 	}
 }
 /*--------------------------------*/
@@ -57,12 +69,15 @@ class Human {
 		System.out.println("Human is thinking....");
 	}
 }
-class ParaGlider extends Human implements Flying { // ParaGlider is a Human - isA
+class ParaGlider extends Human implements Flying,Landing { // ParaGlider is a Human - isA
 	public void fly() {
 		System.out.println("ParaGlider is flying...");
 	}
 	public void checkAeroDynamics() {
 		System.out.println("ParaGlider is checking its aerodynamics...via..analysis");
+	}
+	public void land() {
+		System.out.println("ParaGlider is landing at the mountain landscape....");
 	}
 }
 
