@@ -1,14 +1,18 @@
 
 public class AssociationTest {
 	public static void main(String[] args) {
-		WashingMachine washingMachine = new WashingMachine();
+		
+		//isA Machine, hasA WashingTub
+		WashingMachine washingMachine = new WashingMachine(); 
 		
 		Water h2o= new Water();
 		Electricity relianceEnergy = new Electricity();
 		WashingPowder surfExcel= new WashingPowder();
 		Cloth jean = new Cloth();
 		
+												//using these objects
 		Laundry laundryBill = washingMachine.wash(h2o, relianceEnergy , surfExcel, jean);
+		//producing Laundry
 		
 	}
 }
