@@ -31,5 +31,23 @@ class UserDetailsRepositoryTests {
 		}
 		
 	}
+	
+	@Test
+	void findAllUsersByCityTest() {
+		
+		Iterable<UserDetails> iterable = userRepo.searchByCity("Kolkatta");
+		Iterator<UserDetails> iterator = iterable.iterator();
+		while(iterator.hasNext()) {
+			UserDetails userDetails = iterator.next();
+			System.out.println("User ID    : "+userDetails.getUserIdentificationNumber());
+			System.out.println("User Name  : "+userDetails.getNameOfUser());
+			System.out.println("User Email : "+userDetails.getEmailAddress());
+			System.out.println("User City  : "+userDetails.getCityAddress());
+			System.out.println("User Age   : "+userDetails.getUserAge());
+			System.out.println("--------------------");
+		}
+		
+	}
+
 
 }
