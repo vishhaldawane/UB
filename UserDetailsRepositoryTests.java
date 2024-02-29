@@ -16,6 +16,17 @@ class UserDetailsRepositoryTests {
 	UserDetailsRepository userRepo;
 	
 	@Test
+	void insertUserDetailsTest() {
+		UserDetails user = new UserDetails();
+		user.setUserIdentificationNumber(8);
+		user.setNameOfUser("Martin");
+		user.setEmailAddress("martin@gmail.com");
+		user.setCityAddress("Pune");
+		user.setUserAge(25);
+		userRepo.save(user);
+	}
+	
+	@Test
 	void findAllUsersTest() {
 		
 		Iterable<UserDetails> iterable = userRepo.findAll();
