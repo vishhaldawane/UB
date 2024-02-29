@@ -6,15 +6,12 @@ create table userdetails
          city varchar(20),
          age int
     );
-Query OK, 0 rows affected (0.88 sec)
 
-mysql> insert into userdetails values (1,'Jack','jack@gmail.com','Hyderabad',22);
-Query OK, 1 row affected (0.05 sec)
+insert into userdetails values (1,'Jack','jack@gmail.com','Hyderabad',22);
+insert into userdetails values (2,'Jane','jane@gmail.com','Kolkatta',20);
+insert into userdetails values (3,'Jill','jill@gmail.com','Mumbai',24);
+insert into userdetails values (4,'Smith','smith@gmail.com','Mumbai',27);
+insert into userdetails values (5,'Neo','neo@gmail.com','Mumbai',29);
+insert into userdetails values (6,'Trinity','trinity@gmail.com','Kolkatta',19);
+insert into userdetails values (7,'Morpheus','morpheus@gmail.com','Hyderabad',23);
 
-mysql> insert into userdetails values (2,'Jane','jane@gmail.com','Kolkatta',20);
-Query OK, 1 row affected (0.04 sec)
-
-mysql> insert into userdetails values (3,'Jill','jill@gmail.com','Mumbai',24);
-Query OK, 1 row affected (0.04 sec
-  
-mysql> select * from userdetails;
