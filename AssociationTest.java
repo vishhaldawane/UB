@@ -11,8 +11,9 @@ public class AssociationTest {
 		Cloth jean = new Cloth();
 		
 												//using these objects
-		Laundry laundryBill = washingMachine.wash(h2o, relianceEnergy , surfExcel, jean);
+		Laundry laundry = washingMachine.wash(h2o, relianceEnergy , surfExcel, jean);
 		//producing Laundry
+		laundry.bill();
 		
 	}
 }
@@ -37,7 +38,11 @@ class WashingPowder { }
 class Water { }
 class Electricity { }
 class Cloth { }
-class Laundry { }
+class Laundry { 
+	void bill() {
+		System.out.println("Finally got the laundry bill....");
+	}
+}
 		//sub class
 class WashingMachine extends CleaningDevice //isA - Aggregation
 {
