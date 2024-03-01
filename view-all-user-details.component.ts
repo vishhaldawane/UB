@@ -31,5 +31,24 @@ export class ViewAllUserDetailsComponent {
       }
     );
   }
+
+  msg!:string;
+  deleteIt(id: number) {
+    this.userService.deleteUserDetailsService(id)
+    .subscribe({
+      next: data => {
+          this.msg = data;
+          alert(this.msg);
+          console.log(data);
+
+      },
+      error: error => {
+          alert(error.message);  //console.log(error);
+          //this.msg = error.message;
+          console.error('There was an error!', error);
+      }
+  });
+
+  }
 }
 
