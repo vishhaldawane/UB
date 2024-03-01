@@ -19,6 +19,7 @@ export class ViewAllUserDetailsComponent {
   constructor(private userService: UserDetailsService) {
 
   }
+
   showAllUserDetails() {
     this.userService.loadAllUserDetailsService()
     .subscribe(
@@ -40,15 +41,33 @@ export class ViewAllUserDetailsComponent {
           this.msg = data;
           alert(this.msg);
           console.log(data);
-
+          this.showAllUserDetails();
       },
       error: error => {
           alert(error.message);  //console.log(error);
           //this.msg = error.message;
-          console.error('There was an error!', error);
+          console.error('There was an error!', error.message);
       }
+   
   });
-
+  }
+  newUser: UserDetails = new UserDetails();
+  addIt() {
+    this.userService.addUserDetailsService(this.newUser)
+    .subscribe({
+      next: data => {
+          this.msg = data;
+          alert(this.msg);
+          console.log(data);
+          this.showAllUserDetails();
+      },
+      error: error => {
+          alert(error.message);  //console.log(error);
+          //this.msg = error.message;
+          console.error('There was an error!', error.message);
+      }
+   
+  });
   }
 }
 

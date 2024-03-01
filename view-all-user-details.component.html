@@ -1,4 +1,29 @@
 <h3>Showing All UserDetails</h3>
+
+
+<table border="3" cellspacing=3 cellpadding=3>
+    <tbody>
+        <tr>
+            <th>User Id</th>
+            <th>User Named</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Age</th>
+        </tr>
+    </tbody>
+
+    <tbody>
+        <tr>
+            <td><input type=text [(ngModel)]="newUser.userIdentificationNumber"></td>
+            <td><input type=text [(ngModel)]="newUser.nameOfUser"></td>
+            <td><input type=text [(ngModel)]="newUser.emailAddress"></td>
+            <td><input type=text [(ngModel)]="newUser.cityAddress"></td>
+            <td><input type=text [(ngModel)]="newUser.userAge"></td>
+            <td><button (click)="addIt()">Add</button></td>
+        </tr>
+    </tbody>
+</table>
+<hr>
 <button (click)="showAllUserDetails()">Show All UserDetails</button> <br>
 <table border="3" cellspacing=10 cellpadding=10>
     <tbody>
@@ -18,6 +43,8 @@
             <th>{{user.emailAddress}}</th>
             <th>{{user.cityAddress}}</th>
             <th>{{user.userAge}}</th>
+            <th><button (click)="deleteIt(user.userIdentificationNumber)">Delete</button></th>
         </tr>
     </tbody>
 </table>
+Status : {{msg}}

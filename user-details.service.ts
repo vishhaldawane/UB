@@ -25,4 +25,8 @@ export class UserDetailsService {
   deleteUserDetailsService(num:number) : Observable<any> {
     return this.myHTTP.delete<any>(this.baseURL+"/deleteUser/"+num, this.HTTPOptionsForText);
   }
+
+  addUserDetailsService(newUserObj:UserDetails) : Observable<any> {
+    return this.myHTTP.post<any>(this.baseURL+"/addUser",newUserObj, this.HTTPOptionsForText);
+  }
 }
