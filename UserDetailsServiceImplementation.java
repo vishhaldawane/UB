@@ -3,12 +3,16 @@ package com.example.demo.layer4;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.example.demo.layer2.UserDetails;
 import com.example.demo.layer3.UserDetailsRepository;
+import com.example.demo.layer4.myexceptions.UserDetailsNotFoundException;
 
+@Service
 public class UserDetailsServiceImplementation implements UserDetailsService {
 	
 	@Autowired	UserDetailsRepository userRepo;
@@ -26,10 +30,21 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	@Override
 	public UserDetails findASingleUserDetailsService(int userid) {
-		// TODO Auto-generated method stub
-		return null;
+		UserDetails userDetails = null;
+		Optional<UserDetails> box = userRepo.findById(userid);
+		if(box.isPresent()) {
+			userDetails = box.get();
+		}
+		else {
+			throw new UserDetailsNotFoundException("This user id does not exists ! "+userid);
+		}
+		return userDetails;
 	}
 
+	
+	
+	
+	
 	@Override
 	public void createANewUserDetailsService(UserDetails user) {
 		// TODO Auto-generated method stub
