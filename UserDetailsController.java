@@ -11,7 +11,7 @@ import com.example.demo.layer2.UserDetails;
 public interface UserDetailsController {
 	List<UserDetails> getAllUserDetails();
 	ResponseEntity 	  getUserDetails(Integer userid);
-	void addUserDetails(UserDetails user);
-	void editUserDetails(UserDetails user);
-	void deleteUserDetails(Integer userid);
+	ResponseEntity addUserDetails(UserDetails user);
+	ResponseEntity editUserDetails(UserDetails user);
+	ResponseEntity deleteUserDetails(Integer userid);
 }
