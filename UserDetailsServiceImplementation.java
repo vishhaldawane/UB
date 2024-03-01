@@ -60,7 +60,15 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	@Override
 	public void modifyExistingUserDetailsService(UserDetails user) {
-		// TODO Auto-generated method stub
+		UserDetails userDetails = null;
+		Optional<UserDetails> box = userRepo.findById(user.getUserIdentificationNumber());
+		if(box.isPresent()) {
+			userRepo.save(user); //modify it if found, wont add it 
+		}
+		else {
+			//if not found, wont add it, rather an exception is thrown
+			throw new UserDetailsNotFoundException("This user id does not exists ! "+user.getUserIdentificationNumber()); 
+		}
 
 	}
 

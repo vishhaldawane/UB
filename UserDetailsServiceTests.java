@@ -55,6 +55,17 @@ class UserDetailsServiceTests {
 		user.setUserAge(35);
 		userService.createANewUserDetailsService(user);
 	}
+	
+	@Test
+	void modifyExistingUserDetailsService() {
+		UserDetails user = new UserDetails();
+		user.setUserIdentificationNumber(19);
+		user.setNameOfUser("Sachin Tendulkar");
+		user.setEmailAddress("sachint@gmail.com");
+		user.setCityAddress("PUNE");
+		user.setUserAge(40);
+		userService.modifyExistingUserDetailsService(user);
+	}
 }
 
 
