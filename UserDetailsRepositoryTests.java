@@ -14,7 +14,7 @@ import com.example.demo.layer3.UserDetailsRepository;
 class UserDetailsRepositoryTests {
 
 	@Autowired
-	UserDetailsRepository userRepo;
+	UserDetailsRepository userRepo; //=new SimpleJpaRepository();
 	
 	@Test
 	void insertUserDetailsTest() {
@@ -31,8 +31,8 @@ class UserDetailsRepositoryTests {
 	void updateUserDetailsTest() {
 		UserDetails user = new UserDetails();
 		user.setUserIdentificationNumber(8);
-		user.setNameOfUser("MARTIN KING");
-		user.setEmailAddress("matrinking@gmail.com");
+		user.setNameOfUser("MARTIN LUTHER");
+		user.setEmailAddress("matrinlk@gmail.com");
 		user.setCityAddress("Nagpur");
 		user.setUserAge(26);
 		userRepo.save(user); //if the record exists by this ID, then update
