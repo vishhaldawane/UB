@@ -5,9 +5,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -60,19 +62,33 @@ public class UserDetailsControllerImplementation implements UserDetailsControlle
 		catch(UserDetailsAlreadyExistsException userAlreadyExistFoundEx) {
 			return ResponseEntity.status(HttpStatus.CONFLICT).body(userAlreadyExistFoundEx.getMessage());
 		}
-		
+	}
+	
+	
+	@Override
+	@PutMapping("/editUser") // send the complete body of the UserDetails
+	public ResponseEntity editUserDetails(@RequestBody UserDetails user) {
+		try {
+			userService.modifyExistingUserDetailsService(user);
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body("User Modified");
+		}
+		catch(UserDetailsNotFoundException userDetNotFoundEx) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(userDetNotFoundEx.getMessage());
+		}
 	}
 
-	@Override
-	public ResponseEntity editUserDetails(UserDetails user) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
-	public ResponseEntity deleteUserDetails(Integer userid) {
-		// TODO Auto-generated method stub
-		return null;
+	@DeleteMapping("/deleteUser/{id}")
+	public ResponseEntity deleteUserDetails(@PathVariable("id") Integer userid) {
+		try {
+			userService.deleteExistingUserDetailsService(userid);
+			return ResponseEntity.status(HttpStatus.ACCEPTED).body("User Deleted : "+userid);
+		}
+		catch(UserDetailsNotFoundException userDetNotFoundEx) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body(userDetNotFoundEx.getMessage());
+		}
 	}
 
 }
