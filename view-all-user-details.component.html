@@ -1,0 +1,23 @@
+<h3>Showing All UserDetails</h3>
+<button (click)="showAllUserDetails()">Show All UserDetails</button> <br>
+<table border="3" cellspacing=10 cellpadding=10>
+    <tbody>
+        <tr>
+            <th>User Id</th>
+            <th>User Named</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Age</th>
+        </tr>
+    </tbody>
+
+    <tbody>
+        <tr *ngFor="let user of allUserDetails">
+            <th>{{user.userIdentificationNumber}}</th>
+            <th>{{user.nameOfUser}}</th>
+            <th>{{user.emailAddress}}</th>
+            <th>{{user.cityAddress}}</th>
+            <th>{{user.userAge}}</th>
+        </tr>
+    </tbody>
+</table>
