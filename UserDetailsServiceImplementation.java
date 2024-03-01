@@ -48,7 +48,6 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 	
 	@Override
 	public void createANewUserDetailsService(UserDetails user) {
-		UserDetails userDetails = null;
 		Optional<UserDetails> box = userRepo.findById(user.getUserIdentificationNumber());
 		if(box.isPresent()) {
 			throw new UserDetailsAlreadyExistsException("This user id already exists ! "+user.getUserIdentificationNumber());
@@ -60,7 +59,6 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 
 	@Override
 	public void modifyExistingUserDetailsService(UserDetails user) {
-		UserDetails userDetails = null;
 		Optional<UserDetails> box = userRepo.findById(user.getUserIdentificationNumber());
 		if(box.isPresent()) {
 			userRepo.save(user); //modify it if found, wont add it 
@@ -69,13 +67,18 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 			//if not found, wont add it, rather an exception is thrown
 			throw new UserDetailsNotFoundException("This user id does not exists ! "+user.getUserIdentificationNumber()); 
 		}
-
 	}
 
 	@Override
 	public void deleteExistingUserDetailsService(int userid) {
-		// TODO Auto-generated method stub
-
+		Optional<UserDetails> box = userRepo.findById(userid);
+		if(box.isPresent()) {
+			userRepo.deleteById(userid); 
+		}
+		else {
+			//if not found, rather an exception is thrown
+			throw new UserDetailsNotFoundException("This user id does not exists ! "+userid); 
+		}
 	}
 
 }

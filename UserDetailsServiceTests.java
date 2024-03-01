@@ -66,7 +66,16 @@ class UserDetailsServiceTests {
 		user.setUserAge(40);
 		userService.modifyExistingUserDetailsService(user);
 	}
+	
+	@Test
+	void deleteExistingUserService() {
+		int userid=19;
+		userService.deleteExistingUserDetailsService(userid);
+	}
+	
 }
+
+
 
 
 
