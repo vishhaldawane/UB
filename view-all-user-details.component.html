@@ -1,6 +1,6 @@
 <h3>Showing All UserDetails</h3>
 
-
+<h3>ADD</h3>
 <table border="3" cellspacing=3 cellpadding=3>
     <tbody>
         <tr>
@@ -20,6 +20,30 @@
             <td><input type=text [(ngModel)]="newUser.cityAddress"></td>
             <td><input type=text [(ngModel)]="newUser.userAge"></td>
             <td><button (click)="addIt()">Add</button></td>
+        </tr>
+    </tbody>
+</table>
+<hr>
+<h3> EDIT </h3>
+<table border="3" cellspacing=3 cellpadding=3>
+    <tbody>
+        <tr>
+            <th>User Id</th>
+            <th>User Named</th>
+            <th>Email</th>
+            <th>City</th>
+            <th>Age</th>
+        </tr>
+    </tbody>
+
+    <tbody>
+        <tr>
+            <td><input type=text [(ngModel)]="existingUser.userIdentificationNumber"></td>
+            <td><input type=text [(ngModel)]="existingUser.nameOfUser"></td>
+            <td><input type=text [(ngModel)]="existingUser.emailAddress"></td>
+            <td><input type=text [(ngModel)]="existingUser.cityAddress"></td>
+            <td><input type=text [(ngModel)]="existingUser.userAge"></td>
+            <td><button (click)="editIt()">EDIT</button></td>
         </tr>
     </tbody>
 </table>

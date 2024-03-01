@@ -29,4 +29,9 @@ export class UserDetailsService {
   addUserDetailsService(newUserObj:UserDetails) : Observable<any> {
     return this.myHTTP.post<any>(this.baseURL+"/addUser",newUserObj, this.HTTPOptionsForText);
   }
+
+  
+  editUserDetailsService(existingUserObj:UserDetails) : Observable<any> {
+    return this.myHTTP.put<any>(this.baseURL+"/editUser",existingUserObj, this.HTTPOptionsForText);
+  }
 }
