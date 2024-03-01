@@ -45,6 +45,19 @@ class UserDetailsServiceTests {
 		System.out.println("--------------------");
 	}
 	
-	
-
+	@Test
+	void createANewUserDetailsService() {
+		UserDetails user = new UserDetails();
+		user.setUserIdentificationNumber(9);
+		user.setNameOfUser("Sachin");
+		user.setEmailAddress("sachin@gmail.com");
+		user.setCityAddress("Mumbai");
+		user.setUserAge(35);
+		userService.createANewUserDetailsService(user);
+	}
 }
+
+
+
+
+

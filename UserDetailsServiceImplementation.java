@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.layer2.UserDetails;
 import com.example.demo.layer3.UserDetailsRepository;
+import com.example.demo.layer4.myexceptions.UserDetailsAlreadyExistsException;
 import com.example.demo.layer4.myexceptions.UserDetailsNotFoundException;
 
 @Service
@@ -47,8 +48,14 @@ public class UserDetailsServiceImplementation implements UserDetailsService {
 	
 	@Override
 	public void createANewUserDetailsService(UserDetails user) {
-		// TODO Auto-generated method stub
-
+		UserDetails userDetails = null;
+		Optional<UserDetails> box = userRepo.findById(user.getUserIdentificationNumber());
+		if(box.isPresent()) {
+			throw new UserDetailsAlreadyExistsException("This user id already exists ! "+user.getUserIdentificationNumber());
+		}
+		else {
+			userRepo.save(user);
+		}
 	}
 
 	@Override
