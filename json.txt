@@ -1,0 +1,6 @@
+1. npm install json-server
+2. notepad db.json as per jsonplaceholder
+3. npx json-server --watch db.json
+4. http://localhost:3000/users
+http://localhost:3000/users/1
+
